@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
-import App from './components/HelloWorld';
+import App from './App';
+import HelloWorld from './components/HelloWorld';
 import "./components/Person"
+import Student from './components/Student'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
