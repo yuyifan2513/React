@@ -5,19 +5,23 @@ import Study from './components/Study';
 import AddCount from './components/AddCount';
 import Login from './components/Login';
 import Register from './components/Register';
+import Comment from './components/Comment';
+import Parent from './components/transfer/HelloWorld';
 
 export default class App extends Component {
   render() {
     return (
       <>
-       <Header />
-       <hr />
+       {/* <Header />
+       <hr /> */}
        {/* <Study /> */}
        {/* <AddCount /> */}
        {/* <Login /> */}
-       <Register />
-       <hr />
-       <Footer />
+       {/* <Register /> */}
+       {/* <Comment /> */}
+       <Parent />
+       {/* <hr />
+       <Footer /> */}
       </>
     )
   }
