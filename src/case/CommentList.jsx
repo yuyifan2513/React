@@ -35,10 +35,12 @@ const CommentList = (props) => {
             <p className="time">
               <span>{formatTime(item.time)}</span>
               <span
+                onClick={() => props.collectOrCancel(item.id)}
                 className={`iconfont icon-collect${item.collect ? '-sel' : ''}`}
-              ></span>
+              >
+                </span>
               {item.name === props.user.name && (
-                <span className="del">删除</span>
+                <span className="del" onClick= {() => props.deleteComment(item.id)}>删除</span>
               )}
             </p>
             <p>{item.content}</p>

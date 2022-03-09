@@ -66,6 +66,26 @@ export default class App extends Component {
             comments: [...comments,item]
         })
     }
+    deleteComment(id) {
+        const comments = this.state.comments.filter((item) => item.id !== id)
+        this.setState ({
+            comments: comments
+        })
+    }
+    collectOrCancel(id) {
+        const { comments } = this.state
+        // comments.map((item) =>{
+        //     if(item.id === id){
+        //         return { ...item,collect: !item.collect}
+        //     }
+        //     return item
+        // })
+        const item = comments.find((item) => item.id === id)
+        item.collect = !item.collect
+        this.setState({
+            comments: comments,
+        })
+    }
     render(){
         const { comments,user,active } = this.state
         return (
@@ -79,7 +99,12 @@ export default class App extends Component {
                     updateActive={this.updateActive.bind(this)}
                 />
                 {/* 列表组件 */}
-                <CommentList comments={comments} user={user} active={active} />
+                <CommentList
+                 comments={comments}
+                 user={user} active={active}
+                 deleteComment={this.deleteComment.bind(this)}
+                 collectOrCancel={this.collectOrCancel.bind(this)}
+                />
             </div>
         )
     }

@@ -23,9 +23,16 @@ export default class CommentInput extends Component {
                     </textarea>
                     <div className="foot">
                         <div className="word">{content.length}/100</div>
-                        <div 
+                        <div
                          className="btn"
-                         onClick={() => this.props.addComment(content)} //调用父组件的方法传受控组件的content
+                         onClick={() => {
+                             //调用父组件的方法传受控组件的content
+                            this.props.addComment(content)
+                            // 清空输入框
+                            this.setState({
+                                content: ""
+                            })
+                        }}
                         >
                             发表评论
                         </div>
