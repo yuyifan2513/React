@@ -30,6 +30,20 @@ export default class NewList extends Component {
             },
         ]
     }
+    updateItem(id) {
+        // 更新对应id的点赞数
+        // const news = this.state.news.map(item => {
+        //     if(item.id === id) {
+        //         return {...item, likeCount: item.likeCount + 1 }
+        //     }
+        //     return item
+        // })
+        const {news} = this.state
+        news.find(item => item.id ===id).likeCount++ // 直接改了state里的数据，但没有用setState更新
+        this.setState({
+            news: news
+        })
+    }
     render() {
         const { news } = this.state
         return (
@@ -37,7 +51,7 @@ export default class NewList extends Component {
                 <h1>今日要闻</h1>
                 {
                     news.map(item => (
-                        <NewItem key = {item.id} item = {item} ></NewItem>
+                        <NewItem key = {item.id} item = {item} updateItem={this.updateItem.bind(this)} ></NewItem>
                     ))
                 }
             </div>
@@ -45,7 +59,11 @@ export default class NewList extends Component {
     }
 }
 
-function NewItem ({item}) {
+function NewItem ({ item,updateItem }) {
+    const addLike = () => {
+        // props.id => 调用父组件的方法 -> 对应的选项点赞数+1
+        updateItem(item.id)
+    }
     return (
         <>
             <div className="child">
@@ -53,6 +71,7 @@ function NewItem ({item}) {
                 <div className="detail">
                     <span>{item.publish}</span>
                     <span>{item.likeCount}点赞</span>
+                    <span onClick={addLike}>点赞+1</span>
                 </div>
             </div>
         </>

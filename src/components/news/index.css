@@ -26,3 +26,8 @@
 .child .detail span {
   margin-right: 10px;
 }
+.child .detail span:last-child {
+  cursor: pointer;
+  color: burlywood;
+  user-select: none;
+}
