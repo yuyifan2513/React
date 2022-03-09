@@ -8,9 +8,10 @@ import Register from './components/Register';
 import Comment from './components/Comment';
 // import Parent from './components/transfer/HelloWorld';
 import NewList from './components/news';
-import Parent from './components/context'
+// import Parent from './components/context'
 import Father from './components/context/demo';
 import AppComment from './case'
+import Parent from './proptypes'
 
 export default class App extends Component {
   render() {
@@ -23,9 +24,9 @@ export default class App extends Component {
        {/* <Login /> */}
        {/* <Register /> */}
        {/* <Comment /> */}
-       {/* <Parent /> */}
+       <Parent />
        {/* <Father /> */}
-       <AppComment />
+       {/* <AppComment /> */}
        {/* <NewList /> */}
        {/* <hr />
        <Footer /> */}
